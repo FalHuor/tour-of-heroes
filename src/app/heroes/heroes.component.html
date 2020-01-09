@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="container-list">
+        <h2>My heroes</h2>
+        <ul class="heroes">
+            <a *ngFor="let hero of heroes" routerLink="/detail/{{hero.id}}" (mouseenter)="displayPicture(hero.pictureURL)" (mouseleave)="stopDisplayPicture()">
+                <li>
+                    <span class="badge">{{hero.id}}</span> {{hero.name}} 
+                </li>
+            </a>
+        </ul>
+    </div>
+    
+    <div class="picture">
+        <img *ngIf="displayPic===true" src="{{pictureURL}}">
+    </div>
+</div>
+
+
+<app-hero-detail [hero]="selectedHero"></app-hero-detail>
